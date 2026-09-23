@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="bn">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>মেডিহিসাব — ফার্মেসির হিসাব মোবাইলেই</title>
+<meta name="description" content="ওষুধের মেয়াদ, স্টক আর বাকি — এক অ্যাপে, বাংলায়। ৭ দিন ফ্রি।">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@500;600;700&family=Hind+Siliguri:wght@400;500;600;700&family=IBM+Plex+Mono:wght@600&display=swap">
+<style>
+ :root{--gauze:#EFF1F4;--card:#fff;--crease:#D6DBE2;--ink:#101620;--ink2:#49535F;
+  --ink3:#5C6774;--methylene:#14386B;--on-m:#F1F5FA;--wash:#DEE7F3;
+  --tulsi:#146B45;--tulsi-wash:#DDEDE4;--amber-ink:#7C430C;--amber-wash:#F6E9D9;
+  color-scheme:light;}
+ @media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --gauze:#0C1016;--card:#141A22;--crease:#2A3440;--ink:#E6EBF2;--ink2:#A7B2C0;
+  --ink3:#8793A3;--methylene:#7FB0EE;--on-m:#071522;--wash:#16263A;
+  --tulsi:#5FBE8E;--tulsi-wash:#122A1E;--amber-ink:#F0BE84;--amber-wash:#2A1F12;
+  color-scheme:dark;}}
+ *{box-sizing:border-box}
+ body{margin:0;background:var(--gauze);color:var(--ink);
+  font-family:'Hind Siliguri','Noto Sans Bengali',system-ui,sans-serif;
+  font-size:16px;line-height:1.6}
+ .wrap{max-width:860px;margin:0 auto;padding-inline:20px}
+ h1,h2,h3{font-family:'Anek Bangla',system-ui,sans-serif;font-weight:700;
+  letter-spacing:-.5px;line-height:1.15;margin:0;text-wrap:balance}
+ header{background:var(--methylene);color:var(--on-m);
+  padding-block:calc(44px + env(safe-area-inset-top,0px)) 52px}
+ .mark{font-family:'Anek Bangla',sans-serif;font-weight:700;font-size:23px;opacity:.9}
+ header h1{font-size:clamp(30px,7vw,46px);margin-top:18px;color:var(--on-m)}
+ header p{margin:16px 0 0;font-size:clamp(17px,3.6vw,20px);
+  color:rgba(241,245,250,.82);max-width:32ch}
+ .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+ .btn{display:inline-flex;align-items:center;gap:9px;min-height:52px;
+  padding:0 24px;border-radius:12px;text-decoration:none;font-weight:600;
+  font-size:16.5px;font-family:'Anek Bangla',sans-serif}
+ .btn-main{background:#fff;color:var(--methylene)}
+ .btn-alt{background:rgba(255,255,255,.14);color:#fff;
+  border:1px solid rgba(255,255,255,.35)}
+ .sz{font-family:'IBM Plex Mono',monospace;font-size:13px;opacity:.75;font-weight:500}
+ section{padding-block:46px}
+ h2{font-size:clamp(22px,5vw,30px)}
+ .lede{margin-top:10px;color:var(--ink2);max-width:52ch}
+ .grid{display:grid;gap:16px;margin-top:26px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+ .f{background:var(--card);border:1px solid var(--crease);border-radius:14px;padding:20px}
+ .f b{font-family:'Anek Bangla',sans-serif;font-size:19px;display:block}
+ .f span{color:var(--ink3);font-size:15px}
+ .shots{display:grid;gap:18px;margin-top:26px;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+ .shots figure{margin:0}
+ .shots img{width:100%;display:block;border-radius:14px;border:1px solid var(--crease)}
+ .shots figcaption{margin-top:9px;font-size:14.5px;color:var(--ink3);text-align:center}
+ .note{background:var(--amber-wash);border:1px solid rgba(180,102,26,.3);
+  border-radius:14px;padding:18px;margin-top:22px;color:var(--amber-ink);font-size:15.5px}
+ .note b{font-family:'Anek Bangla',sans-serif;display:block;margin-bottom:6px;font-size:17px}
+ ol{margin:18px 0 0;padding-inline-start:22px}
+ ol li{margin-bottom:9px}
+ .price{background:var(--card);border:1px solid var(--crease);border-radius:14px;
+  padding:22px;margin-top:22px;display:flex;flex-wrap:wrap;gap:22px;align-items:baseline}
+ .price .big{font-family:'Anek Bangla',sans-serif;font-weight:700;font-size:34px}
+ .price .sm{color:var(--ink3);font-size:15px}
+ footer{background:var(--card);border-top:1px solid var(--crease)}
+ footer .wrap{padding-block:30px calc(30px + env(safe-area-inset-bottom,0px));
+  font-size:15px;color:var(--ink3)}
+ footer a{color:var(--methylene);font-weight:600}
+ .wa{display:inline-flex;align-items:center;gap:8px;background:var(--tulsi-wash);
+  color:var(--tulsi);border-radius:10px;padding:10px 16px;text-decoration:none;
+  font-weight:600;font-family:'IBM Plex Mono',monospace;margin-top:8px}
+</style>
+
+<header><div class="wrap">
+  <div class="mark">মেডিহিসাব</div>
+  <h1>ফার্মেসির হিসাব<br>মোবাইলেই</h1>
+  <p>কোন ওষুধের মেয়াদ কবে শেষ, কার কাছে কত বাকি, আজ কত বিক্রি — এক স্ক্রিনেই, পুরোটা বাংলায়।</p>
+  <div class="cta">
+    <a class="btn btn-main" href="https://github.com/Amimul1234/medihisab-app/releases/latest/download/medihisab.apk">
+      অ্যাপ ডাউনলোড করুন <span class="sz">28 MB</span></a>
+    <a class="btn btn-alt" href="https://wa.me/8801731304074?text=%E0%A6%86%E0%A6%B8%E0%A6%B8%E0%A6%BE%E0%A6%B2%E0%A6%BE%E0%A6%AE%E0%A7%81%20%E0%A6%86%E0%A6%B2%E0%A6%BE%E0%A6%87%E0%A6%95%E0%A7%81%E0%A6%AE%2C%20%E0%A6%AE%E0%A7%87%E0%A6%A1%E0%A6%BF%E0%A6%B9%E0%A6%BF%E0%A6%B8%E0%A6%BE%E0%A6%AC%20%E0%A6%B8%E0%A6%AE%E0%A7%8D%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A7%87%20%E0%A6%9C%E0%A6%BE%E0%A6%A8%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A5%A4">
+      WhatsApp-এ কথা বলুন</a>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <h2>কী কী করে</h2>
+  <p class="lede">খাতায় বিক্রি ওঠে, কিন্তু মেয়াদ আর বাকি ওঠে না। মেডিহিসাব ঠিক সেই দুটোই ধরে রাখে।</p>
+  <div class="grid">
+    <div class="f"><b>মেয়াদের সতর্কতা</b><span>কোন ওষুধ কবে শেষ হচ্ছে, হোম স্ক্রিনেই। সময়মতো জানলে ফেরত দিয়ে রিপ্লেস নেওয়া যায়।</span></div>
+    <div class="f"><b>বাকির খাতা</b><span>কার কাছে কত, ফোন নম্বরসহ। বিক্রির সময়েই উঠে যায়, আলাদা লিখতে ভুল হয় না।</span></div>
+    <div class="f"><b>স্টক</b><span>কোন ওষুধ কত আছে, কোন ব্যাচ, কোনটা ফুরিয়ে আসছে।</span></div>
+    <div class="f"><b>বিক্রি ও রিপোর্ট</b><span>নাম লিখে বা বারকোড স্ক্যান করে বিক্রি। দিনের হিসাব এক নজরে।</span></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>অ্যাপের আসল স্ক্রিন</h2>
+  <p class="lede">আঁকা ছবি নয় — চালু অ্যাপের স্ক্রিনশট।</p>
+  <div class="shots">
+    <figure><img src="img/home.jpg" alt="হোম স্ক্রিন"><figcaption>হোম — আজকের বিক্রয় ও মেয়াদের সতর্কতা</figcaption></figure>
+    <figure><img src="img/baki.jpg" alt="বাকির তালিকা"><figcaption>বাকি — কার কাছে কত</figcaption></figure>
+    <figure><img src="img/sale.jpg" alt="বিক্রয় স্ক্রিন"><figcaption>বিক্রয় — কার্টে যোগ করে নগদ বা বাকি</figcaption></figure>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>যেভাবে ইনস্টল করবেন</h2>
+  <ol>
+    <li>উপরের <b>ডাউনলোড</b> বোতামে চাপুন।</li>
+    <li>ফোন জিজ্ঞেস করবে — “অজানা উৎস থেকে ইনস্টল করতে দেবেন?” <b>অনুমতি দিন।</b> এটা স্বাভাবিক, কারণ অ্যাপটা এখনো প্লে স্টোরে নেই।</li>
+    <li>ইনস্টল হয়ে গেলে খুলুন, আর আপনার ফোন নম্বর দিন।</li>
+  </ol>
+  <div class="note">
+    <b>অ্যাকাউন্ট আগে খুলে নিতে হয়</b>
+    নম্বর দিলে যদি “অ্যাকাউন্ট পাওয়া যায়নি” লেখা আসে, তার মানে আপনার দোকানের অ্যাকাউন্ট এখনো তৈরি হয়নি। WhatsApp-এ দোকানের নামটা জানালে আমরা খুলে দিই — দুই মিনিটের কাজ।
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <h2>দাম</h2>
+  <div class="price">
+    <div><div class="big">৭ দিন ফ্রি</div><div class="sm">কার্ড লাগে না, আগে টাকা দিতে হয় না</div></div>
+    <div><div class="big">মাসিক ৳৪৯৯</div><div class="sm">পছন্দ হলে তারপর</div></div>
+  </div>
+  <p class="lede" style="margin-top:14px">টাকা দেওয়া হয় bKash-এ, WhatsApp-এ কথা বলে। অ্যাপের ভেতরে কোনো পেমেন্ট নেই।</p>
+</div></section>
+
+<footer><div class="wrap">
+  <b style="color:var(--ink)">মেডিহিসাব</b> — বাংলাদেশের ফার্মেসির জন্য।<br>
+  প্রশ্ন বা সমস্যা হলে সরাসরি কথা বলুন:
+  <a class="wa" href="https://wa.me/8801731304074">01731-304074</a>
+  <div style="margin-top:14px">
+    <a href="https://www.facebook.com/profile.php?id=61589941445348">ফেসবুক পেজ</a> ·
+    <a href="https://github.com/Amimul1234/medihisab-app/releases/latest">সব ভার্সন</a>
+  </div>
+</div></footer>
